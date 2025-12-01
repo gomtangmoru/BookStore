@@ -1,0 +1,12 @@
+services:
+  server:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      SERVERDBUSER : ""
+      SERVERDBPASS : ""
+      SERVERDBHOST : "localhost"
+      SERVERDBPORT : "5432"
+    networks:
+      - my-network

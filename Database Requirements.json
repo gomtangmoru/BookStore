@@ -1,0 +1,10 @@
+Table : UserAuth
+Keys {
+    - user_id (PK)
+
+}
+
+Table : 
+Keys {
+
+}

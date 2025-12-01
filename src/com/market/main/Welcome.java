@@ -3,6 +3,6 @@ package com.market.main;
 public class Welcome {
 
 	public static void main(String[] args) {
-		new GuestWindow("°í°´ Á¤º¸ ÀÔ·Â", 0, 0, 1000, 750);
+		new GuestWindow("ì„œì ", 0, 0, 1000, 750);
 	}
 }

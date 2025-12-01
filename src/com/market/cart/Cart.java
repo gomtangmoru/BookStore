@@ -53,9 +53,9 @@ public class Cart implements CartInterface {
 	}
 
 	public void printCart() {
-		System.out.println("Àå¹Ù±¸´Ï »óÇ° ¸ñ·Ï :");
+		System.out.println("ì¥ë°”êµ¬ë‹ˆ ìƒí’ˆ ëª©ë¡ :");
 		System.out.println("---------------------------------------------");
-		System.out.println("    µµ¼­ID \t|     ¼ö·® \t|      ÇÕ°è");
+		System.out.println("    ë„ì„œID \\t|     ìˆ˜ëŸ‰ \\t|      í•©ê³„");
 
 		/*
 		 * for (int i = 0; i < mCartCount; i++) { System.out.print("    " +

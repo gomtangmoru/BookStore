@@ -46,7 +46,8 @@ public class GuestInfoPage extends JPanel {
 	}
 
 	public static void main(String[] args) {
-		JFrame frame = new JFrame();
+
+        JFrame frame = new JFrame();
 		frame.setBounds(0, 0, 1000, 750);
 		frame.setLayout(null);
 

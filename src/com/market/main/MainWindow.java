@@ -190,12 +190,18 @@ public class MainWindow extends JFrame {
 		bt8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				int select = JOptionPane.showConfirmDialog(bt8, "쇼핑몰을 종료하겠습니까? ");
+                int select = JOptionPane.showConfirmDialog(
+                        bt8,
+                        "쇼핑몰을 종료하겠습니까?",
+                        "종료 확인",
+                        JOptionPane.YES_NO_OPTION
+                );
 
-				if (select == 0) {
-					System.exit(1);
-				}
-			}
+                if (select == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
+
+            }
 		});
 
 		JButton bt9 = new JButton("관리자", new ImageIcon("./images/9.png"));

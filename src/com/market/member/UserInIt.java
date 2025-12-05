@@ -8,7 +8,7 @@ public class UserInIt {
 	}
 
 	public static void init(String name, int phone) {
-		mUser = new User(name, phone);
+		mUser = new User(name, String.valueOf(phone));
 	}
 
 	public static User getmUser() {

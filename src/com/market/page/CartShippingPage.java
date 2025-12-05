@@ -109,12 +109,12 @@ public class CartShippingPage extends JPanel {
 		phoneLabel.setFont(ft);
 		phonePanel.add(phoneLabel);
 
-		phoneField = new JTextField(15);
+		phoneField = new JTextField(20);
 		phoneField.setFont(ft);
 		if (select) {
 			phoneField.setBackground(Color.LIGHT_GRAY);
 			// phoneLabel2.setText("입력된 고객 연락처");
-			phoneField.setText(String.valueOf(UserInIt.getmUser().getPhone()));
+			phoneField.setText(UserInIt.getmUser().getPhone());
 		}
 		phonePanel.add(phoneField);
 		shippingPanel.add(phonePanel);
@@ -156,7 +156,7 @@ public class CartShippingPage extends JPanel {
 				
 				try {
 					String name = nameField.getText();
-					int phone = Integer.parseInt(phoneField.getText());
+					String phone = phoneField.getText();
 					String address = addressField.getText();
 					User shippingUser = new User(name, phone, address);
 					

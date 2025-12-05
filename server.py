@@ -48,7 +48,7 @@ class Order(db.Model):
     order_id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     order_date: Mapped[str] = mapped_column(String(20)) # 주문 날짜
     user_name: Mapped[str] = mapped_column(String(50))
-    user_phone: Mapped[int] = mapped_column(Integer)
+    user_phone: Mapped[str] = mapped_column(String(20))
     user_address: Mapped[str] = mapped_column(String(200))
 
     items = relationship("OrderItem", backref="order", cascade="all, delete-orphan")
@@ -111,7 +111,7 @@ def add_order():
         new_order = Order(
             order_date=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             user_name=user_data.get('name'),
-            user_phone=int(user_data.get('phone', 0)),
+            user_phone=user_data.get('phone'),
             user_address=user_data.get('address')
         )
         db.session.add(new_order)

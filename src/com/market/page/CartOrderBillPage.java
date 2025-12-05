@@ -38,7 +38,7 @@ public class CartOrderBillPage extends JPanel {
 		panel.add(shippingPanel);
 		
 		// printBillInfo("입력된 고객 이름", "입력된 고객 연락처", "입력된 고객 배송지");
-		printBillInfo(shippingUser.getName(), String.valueOf(shippingUser.getPhone()), shippingUser.getAddress());
+		printBillInfo(shippingUser.getName(), shippingUser.getPhone(), shippingUser.getAddress());
 	}
 
 	public void printBillInfo(String name, String phone, String address) {
@@ -52,32 +52,27 @@ public class CartOrderBillPage extends JPanel {
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 		String strDate = formatter.format(cal.getTime());
 
-		JPanel panel01 = new JPanel();
-		panel01.setBounds(0, 0, 500, 30);
-		// panel01.setBackground(Color.GRAY);
 		JLabel label01 = new JLabel("---------------------배송 받을 고객 정보-----------------------");
 		label01.setFont(ft);
-		panel01.add(label01);
-		shippingPanel.add(panel01);
+		label01.setBounds(0, 0, 500, 30);
+		label01.setHorizontalAlignment(JLabel.CENTER);
+		shippingPanel.add(label01);
 
-		JPanel panel02 = new JPanel();
-		panel02.setBounds(0, 30, 500, 30);
 		JLabel label02 = new JLabel("고객명 : " + name + "             연락처 :      " + phone);
-		label02.setHorizontalAlignment(JLabel.LEFT);
 		label02.setFont(ft);
-		panel02.add(label02);
-		shippingPanel.add(panel02);
+		label02.setBounds(0, 30, 500, 30);
+		label02.setHorizontalAlignment(JLabel.CENTER);
+		shippingPanel.add(label02);
 
-		JPanel panel03 = new JPanel();
-		panel03.setBounds(0, 60, 500, 30);
 		JLabel label03 = new JLabel("배송지 : " + address + "                 발송일 :       " + strDate);
-		label03.setHorizontalAlignment(JLabel.LEFT);
 		label03.setFont(ft);
-		panel03.add(label03);
-		shippingPanel.add(panel03);
+		label03.setBounds(0, 60, 500, 30);
+		label03.setHorizontalAlignment(JLabel.CENTER);
+		shippingPanel.add(label03);
 
 		JPanel printPanel = new JPanel();
-		printPanel.setBounds(0, 100, 500, 300);
+		printPanel.setBounds(0, 100, 500, 400);
+		printPanel.setLayout(null);
 		printCart(printPanel);
 		shippingPanel.add(printPanel);
 	}
@@ -87,65 +82,56 @@ public class CartOrderBillPage extends JPanel {
 		Font ft;
 		ft = new Font("함초롬돋움", Font.BOLD, 12);
 
-		JPanel panel01 = new JPanel();
-		panel01.setBounds(0, 0, 500, 5);
 		JLabel label01 = new JLabel("      장바구니 상품 목록 :");
 		label01.setFont(ft);
-		panel01.add(label01);
-		panel.add(panel01);
+		label01.setBounds(0, 0, 500, 30);
+		label01.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(label01);
 
-		JPanel panel02 = new JPanel();
-		panel02.setBounds(0, 20, 500, 5);
 		JLabel label02 = new JLabel("------------------------------------");
 		label02.setFont(ft);
-		panel02.add(label02);
-		panel.add(panel02);
+		label02.setBounds(0, 30, 500, 30);
+		label02.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(label02);
 
-		JPanel panel03 = new JPanel();
-		panel03.setBounds(0, 25, 500, 5);
 		JLabel label03 = new JLabel("      도서ID           |        수량           |      합계         ");
 		label03.setFont(ft);
-		panel03.add(label03);
-		panel.add(panel03);
+		label03.setBounds(0, 60, 500, 30);
+		label03.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(label03);
 
-		JPanel panel04 = new JPanel();
-		panel04.setBounds(0, 30, 500, 5);
 		JLabel label04 = new JLabel("--------------------------------------");
 		label04.setFont(ft);
-		panel04.add(label04);
-		panel.add(panel04);
+		label04.setBounds(0, 90, 500, 30);
+		label04.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(label04);
 
 		for (int i = 0; i < mCart.mCartItem.size(); i++) { // 13
-			JPanel panel05 = new JPanel();
-			panel05.setBounds(0, 35 + (i * 5), 500, 5);
 			JLabel label05 = new JLabel("    " + mCart.mCartItem.get(i).getBookID() + "                 "
 					+ mCart.mCartItem.get(i).getQuantity() + "                "
 					+ mCart.mCartItem.get(i).getTotalPrice());
 			label05.setFont(ft);
-			panel05.add(label05);
-			panel.add(panel05);
+			label05.setBounds(0, 120 + (i * 30), 500, 30);
+			label05.setHorizontalAlignment(JLabel.CENTER);
+			panel.add(label05);
 		}
 
-		JPanel panel06 = new JPanel();
-		panel06.setBounds(0, 35 + (mCart.mCartItem.size() * 5), 500, 5);
 		JLabel label06 = new JLabel("--------------------------------------");
 		label06.setFont(ft);
-		panel06.add(label06);
-		panel.add(panel06);
+		label06.setBounds(0, 120 + (mCart.mCartItem.size() * 30), 500, 30);
+		label06.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(label06);
 
 		int sum = 0;
 
 		for (int i = 0; i < mCart.mCartItem.size(); i++)
 			sum += mCart.mCartItem.get(i).getTotalPrice();
-		System.out.println("------------" + mCart.mCartItem.size());
 
-		JPanel panel07 = new JPanel();
-		panel07.setBounds(0, 40 + (mCart.mCartItem.size() * 5), 500, 5);
 		JLabel label07 = new JLabel("      주문 총금액 : " + sum + "원");
-		// label04.setHorizontalAlignment(JLabel.CENTER);
 		label07.setFont(new Font("함초롬돋움", Font.BOLD, 15));
-		panel07.add(label07);
-		panel.add(panel07);
+		label07.setBounds(0, 150 + (mCart.mCartItem.size() * 30), 500, 30);
+		label07.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(label07);
 
 	}
 
@@ -161,7 +147,7 @@ public class CartOrderBillPage extends JPanel {
 
 		frame.add(mPagePanel);
 		BookInIt.init();
-		User dummyUser = new User("Test User", 12345, "Seoul, Korea");
+		User dummyUser = new User("Test User", "01012345678", "Seoul, Korea");
 		mPagePanel.add("주문하기", new CartOrderBillPage(mPagePanel, mCart, dummyUser));
 		frame.setVisible(true);
 

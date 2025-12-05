@@ -5,7 +5,7 @@ public class Admin extends Person {
 	private String password = "Admin1234";
 
 	public Admin(String name, int phone) {
-		super(name, phone);
+		super(name, String.valueOf(phone));
 	}
 
 	public String getId() {

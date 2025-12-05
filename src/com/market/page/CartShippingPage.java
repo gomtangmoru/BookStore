@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import com.market.cart.Cart;
 import com.market.member.UserInIt;
+import com.market.member.User;
+import com.market.api.BookApiService;
 import java.awt.event.ActionEvent;
 
 public class CartShippingPage extends JPanel {
@@ -11,6 +13,10 @@ public class CartShippingPage extends JPanel {
 	Cart mCart;
 	JPanel shippingPanel;
 	JPanel radioPanel;
+	
+	JTextField nameField;
+	JTextField phoneField;
+	JTextField addressField;
 
 	public CartShippingPage(JPanel panel, Cart cart) {
 
@@ -87,14 +93,14 @@ public class CartShippingPage extends JPanel {
 		nameLabel.setFont(ft);
 		namePanel.add(nameLabel);
 
-		JTextField nameLabel2 = new JTextField(15);
-		nameLabel2.setFont(ft);
+		nameField = new JTextField(15);
+		nameField.setFont(ft);
 		if (select) {
-			nameLabel2.setBackground(Color.LIGHT_GRAY);
+			nameField.setBackground(Color.LIGHT_GRAY);
 			// nameLabel2.setText("입력된 고객 이름");
-			nameLabel2.setText(UserInIt.getmUser().getName());
+			nameField.setText(UserInIt.getmUser().getName());
 		}
-		namePanel.add(nameLabel2);
+		namePanel.add(nameField);
 		shippingPanel.add(namePanel);
 
 		JPanel phonePanel = new JPanel();
@@ -103,14 +109,14 @@ public class CartShippingPage extends JPanel {
 		phoneLabel.setFont(ft);
 		phonePanel.add(phoneLabel);
 
-		JTextField phoneLabel2 = new JTextField(15);
-		phoneLabel2.setFont(ft);
+		phoneField = new JTextField(15);
+		phoneField.setFont(ft);
 		if (select) {
-			phoneLabel2.setBackground(Color.LIGHT_GRAY);
+			phoneField.setBackground(Color.LIGHT_GRAY);
 			// phoneLabel2.setText("입력된 고객 연락처");
-			phoneLabel2.setText(String.valueOf(UserInIt.getmUser().getPhone()));
+			phoneField.setText(String.valueOf(UserInIt.getmUser().getPhone()));
 		}
-		phonePanel.add(phoneLabel2);
+		phonePanel.add(phoneField);
 		shippingPanel.add(phonePanel);
 
 		JPanel addressPanel = new JPanel();
@@ -119,9 +125,13 @@ public class CartShippingPage extends JPanel {
 		label.setFont(ft);
 		addressPanel.add(label);
 
-		JTextField addressText = new JTextField(15);
-		addressText.setFont(ft);
-		addressPanel.add(addressText);
+		addressField = new JTextField(15);
+		addressField.setFont(ft);
+		if (select) {
+			addressField.setBackground(Color.LIGHT_GRAY);
+			addressField.setText(UserInIt.getmUser().getAddress());
+		}
+		addressPanel.add(addressField);
 		shippingPanel.add(addressPanel);
 
 		JPanel buttonPanel = new JPanel();
@@ -143,8 +153,21 @@ public class CartShippingPage extends JPanel {
 
 				radioPanel.repaint();
 				shippingPanel.removeAll();
-
-				shippingPanel.add("주문 배송지", new CartOrderBillPage(shippingPanel, mCart));
+				
+				try {
+					String name = nameField.getText();
+					int phone = Integer.parseInt(phoneField.getText());
+					String address = addressField.getText();
+					User shippingUser = new User(name, phone, address);
+					
+					BookApiService.addOrder(shippingUser, mCart.mCartItem);
+					
+					shippingPanel.add("주문 배송지", new CartOrderBillPage(shippingPanel, mCart, shippingUser));
+				} catch (Exception ex) {
+					ex.printStackTrace();
+					// Fallback if parsing fails or API error
+					shippingPanel.add("주문 배송지", new CartOrderBillPage(shippingPanel, mCart, UserInIt.getmUser()));
+				}
 
 				mCart.deleteBook();
 				shippingPanel.revalidate();

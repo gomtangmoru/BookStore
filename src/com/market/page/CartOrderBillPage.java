@@ -4,7 +4,7 @@ import javax.swing.*;
 
 import com.market.bookitem.BookInIt;
 import com.market.cart.Cart;
-import com.market.member.UserInIt;
+import com.market.member.User;
 
 import java.awt.*;
 import java.text.SimpleDateFormat;
@@ -16,7 +16,7 @@ public class CartOrderBillPage extends JPanel {
 	JPanel shippingPanel;
 	JPanel radioPanel;
 
-	public CartOrderBillPage(JPanel panel, Cart cart) {
+	public CartOrderBillPage(JPanel panel, Cart cart, User shippingUser) {
 
 		Font ft;
 		ft = new Font("함초롬돋움", Font.BOLD, 15);
@@ -37,7 +37,7 @@ public class CartOrderBillPage extends JPanel {
 		panel.add(shippingPanel);
 		
 		// printBillInfo("입력된 고객 이름", "입력된 고객 연락처", "입력된 고객 배송지");
-		printBillInfo(UserInIt.getmUser().getName(), String.valueOf(UserInIt.getmUser().getPhone()), UserInIt.getmUser().getAddress());
+		printBillInfo(shippingUser.getName(), String.valueOf(shippingUser.getPhone()), shippingUser.getAddress());
 	}
 
 	public void printBillInfo(String name, String phone, String address) {
@@ -158,7 +158,8 @@ public class CartOrderBillPage extends JPanel {
 
 		frame.add(mPagePanel);
 		BookInIt.init();
-		mPagePanel.add("주문하기", new CartOrderBillPage(mPagePanel, mCart));
+		User dummyUser = new User("Test User", 12345, "Seoul, Korea");
+		mPagePanel.add("주문하기", new CartOrderBillPage(mPagePanel, mCart, dummyUser));
 		frame.setVisible(true);
 
 	}

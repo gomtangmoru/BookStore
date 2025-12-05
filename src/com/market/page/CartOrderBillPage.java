@@ -8,6 +8,7 @@ import com.market.member.User;
 
 import java.awt.*;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class CartOrderBillPage extends JPanel {
@@ -45,9 +46,11 @@ public class CartOrderBillPage extends JPanel {
 		Font ft;
 		ft = new Font("함초롬돋움", Font.BOLD, 15);
 
-		Date date = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date());
+		cal.add(Calendar.DATE, 2);
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-		String strDate = formatter.format(date);
+		String strDate = formatter.format(cal.getTime());
 
 		JPanel panel01 = new JPanel();
 		panel01.setBounds(0, 0, 500, 30);
@@ -132,9 +135,9 @@ public class CartOrderBillPage extends JPanel {
 
 		int sum = 0;
 
-		for (int i = 0; i < mCart.mCartCount; i++)
+		for (int i = 0; i < mCart.mCartItem.size(); i++)
 			sum += mCart.mCartItem.get(i).getTotalPrice();
-		System.out.println("------------" + mCart.mCartCount);
+		System.out.println("------------" + mCart.mCartItem.size());
 
 		JPanel panel07 = new JPanel();
 		panel07.setBounds(0, 40 + (mCart.mCartItem.size() * 5), 500, 5);

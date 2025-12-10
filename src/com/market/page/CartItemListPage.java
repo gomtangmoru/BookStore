@@ -21,7 +21,7 @@ public class CartItemListPage extends JPanel {
 
 	public CartItemListPage(JPanel panel, Cart cart) {
 		Font ft;
-		ft = new Font("함초롬돋움", Font.BOLD, 15);
+		ft = new Font("Apple SD Gothic Neo", Font.BOLD, 15);
 		this.mCart = cart;
 		this.setLayout(null);
 

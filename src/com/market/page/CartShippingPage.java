@@ -21,7 +21,7 @@ public class CartShippingPage extends JPanel {
 	public CartShippingPage(JPanel panel, Cart cart) {
 
 		Font ft;
-		ft = new Font("함초롬돋움", Font.BOLD, 15);
+		ft = new Font("Apple SD Gothic Neo", Font.BOLD, 15);
 
 		setLayout(null);
 
@@ -84,7 +84,7 @@ public class CartShippingPage extends JPanel {
 	public void UserShippingInfo(boolean select) {
 
 		Font ft;
-		ft = new Font("함초롬돋움", Font.BOLD, 15);
+		ft = new Font("Apple SD Gothic Neo", Font.BOLD, 15);
 
 		JPanel namePanel = new JPanel();
 		namePanel.setBounds(0, 100, 700, 50);
@@ -138,7 +138,7 @@ public class CartShippingPage extends JPanel {
 		buttonPanel.setBounds(0, 300, 700, 100);
 
 		JLabel buttonLabel = new JLabel("주문완료");
-		buttonLabel.setFont(new Font("함초롬돋움", Font.BOLD, 15));
+		buttonLabel.setFont(new Font("Apple SD Gothic Neo", Font.BOLD, 15));
 		JButton orderButton = new JButton();
 		orderButton.add(buttonLabel);
 		buttonPanel.add(orderButton);

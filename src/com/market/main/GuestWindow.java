@@ -23,7 +23,7 @@ public class GuestWindow extends JFrame {
 		setLayout(null);
 
 		Font ft;
-		ft = new Font("함초롬돋움", Font.BOLD, 15);
+		ft = new Font("Apple SD Gothic Neo", Font.BOLD, 15);
 
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setLocation((screenSize.width - 1000) / 2, (screenSize.height - 750) / 2);

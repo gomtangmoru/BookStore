@@ -59,7 +59,7 @@ public class MainWindow extends JFrame {
 	private void menuIntroduction() {
 		mCart = new Cart();
 		Font ft;
-		ft = new Font("함초롬돋움", Font.BOLD, 15);
+		ft = new Font("Apple SD Gothic Neo", Font.BOLD, 15);
 
 		JButton bt1 = new JButton("고객 정보 확인하기", new ImageIcon("./images/1.png"));
 		bt1.setBounds(0, 0, 100, 50);
@@ -208,7 +208,7 @@ public class MainWindow extends JFrame {
 
 	private void initMenu() {
 		Font ft;
-		ft = new Font("함초롬돋움", Font.BOLD, 15);
+		ft = new Font("Apple SD Gothic Neo", Font.BOLD, 15);
 
 		JMenuBar menuBar = new JMenuBar();
 

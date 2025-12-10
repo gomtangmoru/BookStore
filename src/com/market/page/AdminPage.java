@@ -13,7 +13,7 @@ public class AdminPage extends JPanel {
 
     public AdminPage(JPanel panel) {
 
-        Font ft = new Font("함초롬돋움", Font.BOLD, 15);
+        Font ft = new Font("Apple SD Gothic Neo", Font.BOLD, 15);
         setLayout(null);
 
         Rectangle rect = panel.getBounds();

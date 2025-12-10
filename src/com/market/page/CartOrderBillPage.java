@@ -20,7 +20,7 @@ public class CartOrderBillPage extends JPanel {
 	public CartOrderBillPage(JPanel panel, Cart cart, User shippingUser) {
 
 		Font ft;
-		ft = new Font("함초롬돋움", Font.BOLD, 15);
+		ft = new Font("Apple SD Gothic Neo", Font.BOLD, 15);
 
 		setLayout(null);
 
@@ -44,7 +44,7 @@ public class CartOrderBillPage extends JPanel {
 	public void printBillInfo(String name, String phone, String address) {
 
 		Font ft;
-		ft = new Font("함초롬돋움", Font.BOLD, 15);
+		ft = new Font("Apple SD Gothic Neo", Font.BOLD, 15);
 
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date());
@@ -52,26 +52,38 @@ public class CartOrderBillPage extends JPanel {
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 		String strDate = formatter.format(cal.getTime());
 
-		JLabel label01 = new JLabel("---------------------배송 받을 고객 정보-----------------------");
+		JLabel label01 = new JLabel("---------------- 배송 받을 고객 정보 ----------------");
 		label01.setFont(ft);
-		label01.setBounds(0, 0, 500, 30);
+		label01.setBounds(0, 0, 700, 30);
 		label01.setHorizontalAlignment(JLabel.CENTER);
 		shippingPanel.add(label01);
 
-		JLabel label02 = new JLabel("고객명 : " + name + "             연락처 :      " + phone);
-		label02.setFont(ft);
-		label02.setBounds(0, 30, 500, 30);
-		label02.setHorizontalAlignment(JLabel.CENTER);
-		shippingPanel.add(label02);
+		JLabel labelName = new JLabel("고객명 : " + name);
+		labelName.setFont(ft);
+		labelName.setBounds(0, 30, 700, 30);
+		labelName.setHorizontalAlignment(JLabel.CENTER);
+		shippingPanel.add(labelName);
 
-		JLabel label03 = new JLabel("배송지 : " + address + "                 발송일 :       " + strDate);
-		label03.setFont(ft);
-		label03.setBounds(0, 60, 500, 30);
-		label03.setHorizontalAlignment(JLabel.CENTER);
-		shippingPanel.add(label03);
+		JLabel labelPhone = new JLabel("연락처 : " + phone);
+		labelPhone.setFont(ft);
+		labelPhone.setBounds(0, 60, 700, 30);
+		labelPhone.setHorizontalAlignment(JLabel.CENTER);
+		shippingPanel.add(labelPhone);
+
+		JLabel labelAddress = new JLabel("배송지 : " + address);
+		labelAddress.setFont(ft);
+		labelAddress.setBounds(0, 90, 700, 30);
+		labelAddress.setHorizontalAlignment(JLabel.CENTER);
+		shippingPanel.add(labelAddress);
+
+		JLabel labelDate = new JLabel("발송일 : " + strDate);
+		labelDate.setFont(ft);
+		labelDate.setBounds(0, 120, 700, 30);
+		labelDate.setHorizontalAlignment(JLabel.CENTER);
+		shippingPanel.add(labelDate);
 
 		JPanel printPanel = new JPanel();
-		printPanel.setBounds(0, 100, 500, 400);
+		printPanel.setBounds(0, 160, 700, 400);
 		printPanel.setLayout(null);
 		printCart(printPanel);
 		shippingPanel.add(printPanel);
@@ -80,45 +92,45 @@ public class CartOrderBillPage extends JPanel {
 	public void printCart(JPanel panel) {
 
 		Font ft;
-		ft = new Font("함초롬돋움", Font.BOLD, 12);
+		ft = new Font("Apple SD Gothic Neo", Font.BOLD, 12);
 
-		JLabel label01 = new JLabel("      장바구니 상품 목록 :");
+		JLabel label01 = new JLabel("장바구니 상품 목록 :");
 		label01.setFont(ft);
-		label01.setBounds(0, 0, 500, 30);
+		label01.setBounds(0, 0, 700, 30);
 		label01.setHorizontalAlignment(JLabel.CENTER);
 		panel.add(label01);
 
-		JLabel label02 = new JLabel("------------------------------------");
+		JLabel label02 = new JLabel("------------------------------------------------");
 		label02.setFont(ft);
-		label02.setBounds(0, 30, 500, 30);
+		label02.setBounds(0, 30, 700, 30);
 		label02.setHorizontalAlignment(JLabel.CENTER);
 		panel.add(label02);
 
-		JLabel label03 = new JLabel("      도서ID           |        수량           |      합계         ");
+		JLabel label03 = new JLabel("도서ID           |           수량           |           합계");
 		label03.setFont(ft);
-		label03.setBounds(0, 60, 500, 30);
+		label03.setBounds(0, 60, 700, 30);
 		label03.setHorizontalAlignment(JLabel.CENTER);
 		panel.add(label03);
 
-		JLabel label04 = new JLabel("--------------------------------------");
+		JLabel label04 = new JLabel("------------------------------------------------");
 		label04.setFont(ft);
-		label04.setBounds(0, 90, 500, 30);
+		label04.setBounds(0, 90, 700, 30);
 		label04.setHorizontalAlignment(JLabel.CENTER);
 		panel.add(label04);
 
-		for (int i = 0; i < mCart.mCartItem.size(); i++) { // 13
-			JLabel label05 = new JLabel("    " + mCart.mCartItem.get(i).getBookID() + "                 "
-					+ mCart.mCartItem.get(i).getQuantity() + "                "
-					+ mCart.mCartItem.get(i).getTotalPrice());
+		for (int i = 0; i < mCart.mCartItem.size(); i++) {
+			JLabel label05 = new JLabel(mCart.mCartItem.get(i).getBookID() + "           |           "
+					+ mCart.mCartItem.get(i).getQuantity() + "           |           "
+					+ mCart.mCartItem.get(i).getTotalPrice() + "원");
 			label05.setFont(ft);
-			label05.setBounds(0, 120 + (i * 30), 500, 30);
+			label05.setBounds(0, 120 + (i * 30), 700, 30);
 			label05.setHorizontalAlignment(JLabel.CENTER);
 			panel.add(label05);
 		}
 
-		JLabel label06 = new JLabel("--------------------------------------");
+		JLabel label06 = new JLabel("------------------------------------------------");
 		label06.setFont(ft);
-		label06.setBounds(0, 120 + (mCart.mCartItem.size() * 30), 500, 30);
+		label06.setBounds(0, 120 + (mCart.mCartItem.size() * 30), 700, 30);
 		label06.setHorizontalAlignment(JLabel.CENTER);
 		panel.add(label06);
 
@@ -127,9 +139,9 @@ public class CartOrderBillPage extends JPanel {
 		for (int i = 0; i < mCart.mCartItem.size(); i++)
 			sum += mCart.mCartItem.get(i).getTotalPrice();
 
-		JLabel label07 = new JLabel("      주문 총금액 : " + sum + "원");
-		label07.setFont(new Font("함초롬돋움", Font.BOLD, 15));
-		label07.setBounds(0, 150 + (mCart.mCartItem.size() * 30), 500, 30);
+		JLabel label07 = new JLabel("주문 총금액 : " + sum + "원");
+		label07.setFont(new Font("Apple SD Gothic Neo", Font.BOLD, 15));
+		label07.setBounds(0, 150 + (mCart.mCartItem.size() * 30), 700, 30);
 		label07.setHorizontalAlignment(JLabel.CENTER);
 		panel.add(label07);
 

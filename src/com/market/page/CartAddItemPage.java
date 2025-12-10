@@ -20,7 +20,7 @@ public class CartAddItemPage extends JPanel {
 
 	public CartAddItemPage(JPanel panel, Cart cart) {
 		Font ft;
-		ft = new Font("함초롬돋움", Font.BOLD, 15);
+		ft = new Font("Apple SD Gothic Neo", Font.BOLD, 15);
 
 		setLayout(null);
 

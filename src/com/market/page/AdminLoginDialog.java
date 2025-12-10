@@ -20,7 +20,7 @@ public class AdminLoginDialog extends JDialog {
         super(frame, "관리자로그인", true);
 
         Font ft;
-        ft = new Font("함초롬돋움", Font.BOLD, 15);
+        ft = new Font("Apple SD Gothic Neo", Font.BOLD, 15);
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((screenSize.width - 400) / 2, (screenSize.height - 300) / 2);
@@ -31,7 +31,7 @@ public class AdminLoginDialog extends JDialog {
         titlePanel.setBounds(0, 20, 400, 50);
         add(titlePanel);
         JLabel titleLabel = new JLabel("관리자 로그인");
-        titleLabel.setFont(new Font("함초롬돋움", Font.BOLD, 20));
+        titleLabel.setFont(new Font("Apple SD Gothic Neo", Font.BOLD, 20));
         titlePanel.add(titleLabel);
 
         JPanel idPanel = new JPanel();

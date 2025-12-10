@@ -204,25 +204,6 @@ public class MainWindow extends JFrame {
             }
 		});
 
-		JButton bt9 = new JButton("관리자", new ImageIcon("./images/9.png"));
-		bt9.setFont(ft);
-		mMenuPanel.add(bt9);
-
-		bt9.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				AdminLoginDialog adminDialog;
-				JFrame frame = new JFrame();
-				adminDialog = new AdminLoginDialog(frame, "관리자 로그인");
-				adminDialog.setVisible(true);
-				if (adminDialog.isLogin) {
-					mPagePanel.removeAll();
-					mPagePanel.add("관리자", new AdminPage(mPagePanel));
-					mPagePanel.revalidate();
-					mPagePanel.repaint();
-				}
-			}
-		});
-
 	}
 
 	private void initMenu() {
